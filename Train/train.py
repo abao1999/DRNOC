@@ -18,7 +18,7 @@ from Losses import particle_condensation_loss,dummy
 # set training parameters
 nbatch=550 #120 #1*7
 
-plots_after_n_batch=1 #1000
+plots_after_n_batch=100 #1000
 use_event=0
 learningrate=3e-4 #-4
 
@@ -132,12 +132,12 @@ ppdts= [plot_pixel_3D_clustering_flat_during_training_graph(
 resoplot = plot_particle_resolution_during_training(
     outfilename=train.outputDir+'/resolution',
     samplefile=samplepath,
-    after_n_batches=1,
+    after_n_batches=plots_after_n_batch,
     decay_function=reso_decay_function,
     use_event=-1
     )
 
-# containue training from previous snapshot
+# continue training from previous snapshot
 if not train.modelSet(): # allows to resume a stopped/killed training. Only sets the model if it cannot be loaded from previous snapshot
 
     #for regression use the regression model
